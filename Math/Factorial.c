@@ -5,15 +5,15 @@
 #define BUFFER_SIZE 1000
 static unsigned long long buffer[BUFFER_SIZE];
 
-unsigned long long fibonacci(int index)
+unsigned long long factorial(int number)
 {
-	if (buffer[index] == ULLONG_MAX)
+	if (buffer[number] == ULLONG_MAX)
 	{
-		return buffer[index] = fibonacci(index - 1) + fibonacci(index - 2);
+		return buffer[number] = number * factorial(number - 1);
 	}
 	else
 	{
-		return buffer[index];
+		return buffer[number];
 	}
 }
 
@@ -25,17 +25,17 @@ int main()
 
 	while (1)
 	{
-		printf("Index(Exit: -1): ");
+		printf("Number(Exit: -1): ");
 
-		int index;
-		scanf(" %d", &index);
+		int number;
+		scanf(" %d", &number);
 
-		if (index == -1)
+		if (number == -1)
 		{
 			break;
 		}
 
-		printf("%llu\n", fibonacci(index));
+		printf("%llu\n", factorial(number));
 	}
 
 	return 0;
