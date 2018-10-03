@@ -8,20 +8,20 @@ size_t count_vowels(char* string);
 
 int main()
 {
-	char* str = (char*)calloc(6, sizeof(char));
+	char* str = (char*)calloc(101, sizeof(char));
 	char* p = str;
-	size_t str_cap = 6;
+	size_t str_cap = 101;
 	size_t str_total_len = 0;
 
 	while (1)
 	{
-		fgets(p, 6, stdin);
+		fgets(p, 101, stdin);
 		size_t str_len = min(strlen(p), 6);
 		str_total_len += str_len;
 
 		if (has_lf(p, str_len)) break;
 
-		p = str = (char*)realloc(str, (str_cap += 6));
+		p = str = (char*)realloc(str, (str_cap += 100));
 		p += str_total_len;
 	}
 
